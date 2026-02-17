@@ -1,4 +1,30 @@
 ImpactCheck
+Prevent risky configuration changes before they break production.
+ImpactCheck is a Windows CLI tool that detects high-risk configuration changes (JSON, XML, .config) and system DLL impact before deployment.
+Instead of discovering problems in staging or production, you detect them in CI.
+
+Why It Exists
+Most CI pipelines validate syntax.
+They do not validate impact.
+A one-line change in:
+a token
+a connection string
+an endpoint
+a feature flag
+can silently change system behavior.
+
+ImpactCheck makes configuration changes measurable and enforceable.
+Quick Example
+impactcheck json appsettings.json --snapshot before.json
+# modify file
+impactcheck json appsettings.json --snapshot after.json
+impactcheck diff before.json after.json --policy strict
+
+If a sensitive value changes, the exit code becomes:
+1
+
+Your pipeline fails before deployment.
+ImpactCheck
 Make configuration changes measurable before they break production.
 ImpactCheck is a cross-platform CLI tool that analyzes configuration and binary changes and tells you:
 What changed
@@ -17,7 +43,6 @@ can silently introduce high-risk behavior.
 ImpactCheck makes configuration changes explicit, comparable, and enforceable.
 
 🔍 What It Does
-
 ImpactCheck can:
 Analyze JSON
 Analyze XML
@@ -283,5 +308,17 @@ impactcheck diff before.json after.json --json > diff.json
 📄 License
 opyright (c) 2025 Federico
 All rights reserved.
-This software may not be copied, modified, distributed, sublicensed, or sold without explicit written permission..
+This software may not be copied, modified, distriuted, sublicensed, or sold without explicit written permission..
 Created By Federico Distaso
+
+Enterprise Edition (Coming Soon)
+ImpactCheck Enterprise will include:
+Custom policy files (fine-grained rule control)
+Organization-wide rule packs
+CI pull request comments
+Compliance reports
+Audit logging
+Team licensing
+
+If you are evaluating ImpactCheck for production use,
+please reach out at: *fededistaso@gmail.com*
