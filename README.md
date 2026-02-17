@@ -322,3 +322,12 @@ Team licensing
 
 If you are evaluating ImpactCheck for production use,
 please reach out at: *fededistaso@gmail.com*
+
+Early Adopters
+If you're evaluating ImpactCheck for real-world CI/CD usage,
+I’d especially appreciate feedback on:
+policy customization needs
+enterprise configuration workflows
+compliance requirements
+edge-case configuration formats
+*Open an issue or reach out directly*.
